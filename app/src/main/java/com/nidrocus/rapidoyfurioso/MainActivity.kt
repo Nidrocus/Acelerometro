@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_velocimetro)
 
 
        //val sensorManager =  ProximitySensorManager(this)
@@ -28,9 +28,9 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun onGyroscopeUpdate(event: SensorEvent?){
-        tv_x.text = "x:${event!!.values[0]}"
-        tv_y.text = "y:${event!!.values[1]}"
-        tv_z.text  = "z:${event!!.values[2]}"
+//        tv_x.text = "x:${event!!.values[0]}"
+//        tv_y.text = "y:${event!!.values[1]}"
+//        tv_z.text  = "z:${event!!.values[2]}"
     }
 
 
