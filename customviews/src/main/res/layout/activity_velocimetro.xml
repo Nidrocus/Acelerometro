@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <com.nidrocus.customviews.Velocimetro
+        android:id="@+id/velocimetro"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
