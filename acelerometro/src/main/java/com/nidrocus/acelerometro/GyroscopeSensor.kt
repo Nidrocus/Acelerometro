@@ -20,11 +20,11 @@ class GyroscopeSensor constructor(context : Context) {
 
     init {
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
-        Log.e(TAG,"Sensor no disponible")
+        if(sensor == null) Log.e(TAG,"Sensor no disponible")
     }
 
 
-    fun listenUpdates(onUpdate: (event: SensorEvent?) -> Any ) {
+    fun listenUpdates(onUpdate: (event: SensorEvent?) -> Unit ) {
         proximityListener = object : SensorEventListener {
             override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
 
