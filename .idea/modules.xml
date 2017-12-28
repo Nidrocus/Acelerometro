@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Acelerometro.iml" filepath="$PROJECT_DIR$/Acelerometro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RapidoyFurioso.iml" filepath="$PROJECT_DIR$/RapidoyFurioso.iml" />
       <module fileurl="file://C:\Users\Federico Torres\Documents\Acelerometro\RapidoyFurioso.iml" filepath="C:\Users\Federico Torres\Documents\Acelerometro\RapidoyFurioso.iml" />
       <module fileurl="file://$PROJECT_DIR$/acelerometro/acelerometro.iml" filepath="$PROJECT_DIR$/acelerometro/acelerometro.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
