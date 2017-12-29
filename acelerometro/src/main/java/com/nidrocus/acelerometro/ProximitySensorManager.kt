@@ -34,7 +34,7 @@ class ProximitySensorManager  constructor(val context : Context) {
             val maxRange = sensor?.maximumRange
               if(event != null && maxRange != null){
                   if (event.values[0]< maxRange){
-                      //si se detecta un objeto mas cerca del maximo alcance del sensor entonces hay un objeto en el medio
+                      //si se detecta un objeto mas cerca del maximo alcance del gyroscopeSensor entonces hay un objeto en el medio
                       onUpdate(event)
                   }
               }
