@@ -1,5 +1,6 @@
 package com.nidrocus.rapidoyfurioso
 
+import android.hardware.Sensor
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -17,9 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_velocimetro)
 
-        //sensorWrapper = SensorWrapper(this, Sensor.TYPE_GYROSCOPE ,this::onRotationUpdate)
-        sensorFede = GyroscopeSensor(this)
-        sensorFede?.listenUpdates(this::onRotationUpdate,this::onOrientationUpdate)
+        sensorWrapper = SensorWrapper(this, Sensor.TYPE_GYROSCOPE ,this::onRotationUpdate)
+//        sensorFede = GyroscopeSensor(this)
+//        sensorFede?.listenUpdates(this::onRotationUpdate,this::onOrientationUpdate)
 
 
     }

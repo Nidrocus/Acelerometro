@@ -5,6 +5,7 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by leandro on 28/12/17.
@@ -35,7 +36,7 @@ class SensorWrapper constructor(context: Context, type: Int, private val listene
             }
         }
 
-        manager.registerListener(sensorListener,sensor,2*1000 *1000)
+        manager.registerListener(sensorListener,sensor,TimeUnit.MILLISECONDS.toMicros(75).toInt());
     }
 
     fun die () {
