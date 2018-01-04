@@ -58,7 +58,7 @@ class Velocimetro @JvmOverloads constructor(context: Context, attrs: AttributeSe
     fun setVelocity(velocity: Float) {
         if (velocity > 0 && velocity < maxVelocity) {
             val percentage = velocity * 100 / maxVelocity
-            updatePosition(percentage * 100 / 180f)
+            updatePosition(percentage * 180 / 100f)
         }
     }
 }

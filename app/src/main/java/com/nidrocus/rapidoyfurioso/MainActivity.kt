@@ -1,7 +1,13 @@
 package com.nidrocus.rapidoyfurioso
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
+import android.hardware.Sensor
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Animation
+import android.view.animation.OvershootInterpolator
 import android.widget.TextView
 import com.nidrocus.acelerometro.GyroscopeSensor
 import com.nidrocus.acelerometro.SensorWrapper
@@ -15,15 +21,22 @@ class MainActivity : AppCompatActivity() {
     var sensorFede: GyroscopeSensor? = null
     var velocimetro: Velocimetro? = null
 
+    var lastUpdate : Float = 0f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_velocimetro)
 
         velocimetro = findViewById(R.id.velocimetro)
-        //sensorWrapper = SensorWrapper(this, Sensor.TYPE_GYROSCOPE ,this::onRotationUpdate)
-        sensorFede = GyroscopeSensor(this)
-        sensorFede?.listenUpdates(this::onRotationUpdate, this::onOrientationUpdate)
-        velocimetro?.setMaxVelocity(3f)
+        sensorWrapper = SensorWrapper(this, Sensor.TYPE_GYROSCOPE ,this::onRotationUpdate)
+        //sensorFede = GyroscopeSensor(this)
+        //sensorFede?.listenUpdates(this::onRotationUpdate, this::onOrientationUpdate)
+        velocimetro?.setMaxVelocity(7f)
+
+//        var animator = ObjectAnimator.ofFloat(velocimetro,"velocity",7f)
+//        animator.duration = 1000
+//        animator.setAutoCancel(false)
+//        animator.start()
     }
 
     private fun onOrientationUpdate(orientation: FloatArray) {
@@ -40,7 +53,17 @@ class MainActivity : AppCompatActivity() {
         val tvAngular = findViewById<TextView>(R.id.tv_angular)
         tvAngular.text = "angular: %.2f".format(angular)
 
-        velocimetro?.setVelocity(angular.toFloat())
+
+
+        //velocimetro?.setVelocity(angular.toFloat())
+
+        var animator = ObjectAnimator.ofFloat(velocimetro,"velocity",lastUpdate,angular.toFloat())
+        animator.duration = 70
+        animator.interpolator = AccelerateDecelerateInterpolator()
+        animator.setAutoCancel(false)
+        animator.start()
+
+        lastUpdate = angular.toFloat()
     }
 
     override fun onDestroy() {
